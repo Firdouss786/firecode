@@ -1,12 +1,11 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  name: app_db
-  host: 10.76.200.75
+  #pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: 18.144.43.199
   port: 3306
-  username: firdous
-  password: 'dbfirdous'
+  username: iseBite
+  password: ise@BitE11#
   
 development:
   <<: *default
