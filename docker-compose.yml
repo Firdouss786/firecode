@@ -1,0 +1,29 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:    
+      - MYSQL_ROOT_PASSWORD="password1"
+      - MYSQL_USER="firdous"
+      - MYSQL_PASSWORD="dbfirdous"
+      - MYSQL_DATABASE="app_db"
+    ports:
+      - "3306:3306" 
+    expose:
+      - "3306"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.txt
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ".:/fireflyapp"  
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    links:
+      - db
+
